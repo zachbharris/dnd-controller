@@ -3,12 +3,15 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 import Routes from './routes';
 
+import Navbar from './components/Navbar';
+
 class App extends Component {
   render() {
     return (
       <div className="App">
         <Router>
           <React.Fragment>
+            <Navbar />
             <Routes />
           </React.Fragment>
         </Router>
