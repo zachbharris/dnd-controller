@@ -6,7 +6,6 @@ import SignedInLinks from './SignedInLinks';
 import SignedOutLinks from './SignedOutLinks';
 
 const Navbar = ({ auth }) => {
-  console.log(auth);
   const links = auth.uid ? <SignedInLinks /> : <SignedOutLinks />;
   return (
     <nav>
