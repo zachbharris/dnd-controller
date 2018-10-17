@@ -1,0 +1,15 @@
+@import './globals/colors';
+
+html, body {
+  background: $black;
+  color: $white;
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  font-size: 16px;
+}
+
+// globals
+// components
+@import './components/navbar';
+@import './components/dropdown';
+// partials
+// pages

@@ -12,6 +12,8 @@ import firebase from './config/firebaseConfig';
 import App from './App';
 import * as serviceWorker from './utils/serviceWorker';
 
+import './styles/styles.scss';
+
 const store = createStore(
   rootReducer,
   compose(
