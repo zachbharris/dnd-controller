@@ -7,7 +7,7 @@ const SignedInLinks = ({ signOut }) => {
   return (
     <div>
       <ul>
-        <li><NavLink to="/">New Campaign</NavLink></li>
+        <li><NavLink to="/campaign/create">New Campaign</NavLink></li>
         <li><button type="button" onClick={signOut}>Log Out</button></li>
         <li><NavLink to="/">User</NavLink></li>
       </ul>

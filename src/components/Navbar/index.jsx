@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 import SignedInLinks from './SignedInLinks';
 import SignedOutLinks from './SignedOutLinks';
 
-const Navbar = ({ auth }) => {
-  const links = auth.uid ? <SignedInLinks /> : <SignedOutLinks />;
+const Navbar = ({ auth, profile }) => {
+  const links = auth.uid ? <SignedInLinks profile={profile} /> : <SignedOutLinks />;
   return (
     <nav>
       <Link to="/">DND Controller</Link>
@@ -17,7 +17,8 @@ const Navbar = ({ auth }) => {
 
 const mapStateToProps = (state) => {
   return {
-    auth: state.firebase.auth
+    auth: state.firebase.auth,
+    profile: state.firebase.profile
   }
 }
 
