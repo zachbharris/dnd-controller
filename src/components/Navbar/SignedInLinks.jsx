@@ -56,6 +56,7 @@ class SignedInLinks extends Component {
             width={width}
             toggleDropdown={this.toggleDropdown}
           >
+            <a href="#" rel="noopener noreferrer" target="_blank">Offical D&amp;N Resource</a>
             <button type="button" onClick={signOut}>Logout</button>
           </Dropdown>
         </li>

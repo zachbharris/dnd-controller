@@ -1,22 +1,28 @@
-import React from 'react';
-import { Route, Switch, withRouter } from 'react-router-dom';
+import React from "react";
+import { Route, Switch, withRouter } from "react-router-dom";
 
-import Dashboard from '../pages/Dashboard';
-import Campaign from '../pages/Campaign';
+import Dashboard from "../pages/Dashboard";
+import Campaign from "../pages/Campaign";
+import Profile from "../pages/Users/profile";
 
-import CampaignDetails from '../components/Campaigns/CampaignDetails';
-import SignIn from '../components/Auth/SignIn';
-import SignUp from '../components/Auth/SignUp';
+import CampaignDetails from "../components/Campaigns/CampaignDetails";
+import Login from "../pages/Login";
+import SignUp from "../components/Auth/SignUp";
 
 const Routes = () => (
   <Switch>
     <Route exact path="/" component={Dashboard} />
-    <Route exact path="/login" component={SignIn} />
-    <Route exact path="/signup" component={SignUp} />
+
+    {/* user routes */}
+    <Route path="/login" component={Login} />
+    <Route path="/register" component={SignUp} />
+    <Route path="/user/:id" component={Profile} />
+
+    {/* campaign routes */}
     <Route path="/campaign/:type/:id" component={CampaignDetails} />
     <Route path="/campaign/:type" component={Campaign} />
     <Route path="/campaign/" component={Campaign} />
   </Switch>
-)
+);
 
 export default withRouter(Routes);

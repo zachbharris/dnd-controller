@@ -12,6 +12,7 @@ import firebase from './config/firebaseConfig';
 import App from './App';
 import * as serviceWorker from './utils/serviceWorker';
 
+import 'semantic-ui-css/semantic.min.css';
 import './styles/styles.scss';
 
 const store = createStore(
@@ -24,6 +25,7 @@ const store = createStore(
       userProfile: 'users',
       attachAuthIsReady: true
     }),
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   )
 )
 

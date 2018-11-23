@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import React, { Component } from "react";
+import { BrowserRouter as Router } from "react-router-dom";
 
 // routes
-import Routes from './routes';
+import Routes from "./routes";
 // global components
-import Navbar from './components/Navbar';
+import Navbar from "./components/Navbar";
 
 class App extends Component {
   render() {
@@ -12,7 +12,7 @@ class App extends Component {
       <div className="App">
         <Router>
           <React.Fragment>
-            <Navbar />
+            {/* <Navbar /> */}
             <Routes />
           </React.Fragment>
         </Router>
