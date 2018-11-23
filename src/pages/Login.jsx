@@ -62,11 +62,14 @@ class Login extends Component {
               <Image src={Logo} />
             </Header>
             <Form>
-              <Segment>
+              <Segment textAlign="left">
                 <Form.Input
                   onChange={this.handleChange}
                   value={email}
-                  name="email"
+                  label="Email"
+                  labelPosition="left"
+                  placeholder="Enter your email"
+                  name="email" id="email"
                   type="email"
                   icon="mail"
                   fluid
@@ -74,7 +77,9 @@ class Login extends Component {
                 <Form.Input
                   onChange={this.handleChange}
                   value={password}
-                  name="password"
+                  label="Password"
+                  placeholder="Enter your password"
+                  name="password" id="password"
                   type="password"
                   icon="lock"
                   fluid
