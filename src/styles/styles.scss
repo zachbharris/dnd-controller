@@ -1,15 +1,5 @@
 @import './globals/colors';
 
-html, body {
-  background: $black;
-  color: $white;
-  font-family: 'Roboto', Arial, Helvetica, sans-serif;
-  font-size: 16px;
+body {
+  margin-top: 66px; // fix for sticky menu
 }
-
-// globals
-// components
-@import './components/navbar';
-@import './components/dropdown';
-// partials
-// pages

@@ -12,7 +12,7 @@ class App extends Component {
       <div className="App">
         <Router>
           <React.Fragment>
-            {/* <Navbar /> */}
+            <Navbar />
             <Routes />
           </React.Fragment>
         </Router>

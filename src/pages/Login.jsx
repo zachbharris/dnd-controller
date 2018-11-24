@@ -5,15 +5,11 @@ import {
   Button,
   Form,
   Grid,
-  Header,
-  Image,
-  Message,
   Segment
 } from "semantic-ui-react";
 import { connect } from "react-redux";
 
 import { signIn } from "../store/actions/authActions";
-import Logo from "../components/Navbar/dice.svg";
 
 class Login extends Component {
   state = {
@@ -78,9 +74,6 @@ class Login extends Component {
           verticalAlign="middle"
         >
           <Grid.Column style={{ maxWidth: 450 }}>
-            <Header>
-              <Image src={Logo} />
-            </Header>
             <Form>
               <Segment textAlign="left">
                 <Form.Input
