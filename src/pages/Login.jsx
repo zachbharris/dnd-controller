@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Redirect, Link } from "react-router-dom";
 import {
@@ -8,8 +8,7 @@ import {
   Header,
   Image,
   Message,
-  Segment,
-  Icon
+  Segment
 } from "semantic-ui-react";
 import { connect } from "react-redux";
 
@@ -20,8 +19,28 @@ class Login extends Component {
   state = {
     email: "",
     password: "",
-    loading: false
+    error: {
+      email: false,
+      password: false
+    }
   };
+
+  componentWillReceiveProps(nextProps) {
+    const { authError } = this.props;
+    if (nextProps.authError !== authError) {
+      this.setState({ error: { email: false, password: false } });
+
+      if (nextProps.authError.code !== undefined) {
+        if (nextProps.authError.code.includes("password")) {
+          this.setState({ error: { password: true } });
+        }
+
+        if(nextProps.authError.code.includes("email")) {
+          this.setState({ error: { email: true } });
+        }
+      }
+    }
+  }
 
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
@@ -38,9 +57,10 @@ class Login extends Component {
   };
 
   render() {
-    const { auth, authError } = this.props;
-    const { email, password, loading } = this.state;
+    const { auth, authError, loading } = this.props;
+    const { email, password, error } = this.state;
 
+    if (auth.uid) return <Redirect to="/" />
     return (
       <div className="login-form">
         <style>
@@ -73,6 +93,7 @@ class Login extends Component {
                   type="email"
                   icon="mail"
                   fluid
+                  error={error.email}
                 />
                 <Form.Input
                   onChange={this.handleChange}
@@ -83,20 +104,19 @@ class Login extends Component {
                   type="password"
                   icon="lock"
                   fluid
+                  error={error.password}
                 />
-                <Button
-                  onClick={this.handleSubmission}
-                  loading={loading}
-                  icon="sign in"
-                  content="Login"
-                  fluid
-                  basic
-                />
+                <Button.Group basic fluid>
+                  <Button
+                    type="submit"
+                    onClick={this.handleSubmission}
+                    loading={loading}
+                    icon="sign in"
+                    content="Login"
+                  />
+                </Button.Group>
               </Segment>
             </Form>
-            <Message>
-              Don't have an account? <Link to="/register">Register</Link>
-            </Message>
           </Grid.Column>
         </Grid>
       </div>
@@ -107,7 +127,8 @@ class Login extends Component {
 const mapStateToProps = state => {
   return {
     auth: state.firebase.auth,
-    authError: state.auth.authError
+    authError: state.auth.authError,
+    loading: state.auth.isLoading,
   };
 };
 
