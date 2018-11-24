@@ -1,5 +1,7 @@
 @import './globals/colors';
 
 body {
-  margin-top: 66px; // fix for sticky menu
+  // fix for sticky menu
+  // padding prevents unnecessary overflow
+  padding-top: calc(66px + 1rem);
 }

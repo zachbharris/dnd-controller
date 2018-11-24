@@ -7,7 +7,7 @@ import Profile from "../pages/Users/profile";
 
 import CampaignDetails from "../components/Campaigns/CampaignDetails";
 import Login from "../pages/Login";
-import SignUp from "../components/Auth/SignUp";
+import Register from "../pages/Register";
 
 const Routes = () => (
   <Switch>
@@ -15,7 +15,7 @@ const Routes = () => (
 
     {/* user routes */}
     <Route path="/login" component={Login} />
-    <Route path="/register" component={SignUp} />
+    <Route path="/register" component={Register} />
     <Route path="/user/:id" component={Profile} />
 
     {/* campaign routes */}

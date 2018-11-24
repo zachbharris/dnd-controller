@@ -1,12 +1,13 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { Menu } from 'semantic-ui-react';
 
 const SignedOutLinks = () => {
   return (
-    <ul>
-      <li><NavLink to="/signup">Signup</NavLink></li>
-      <li><NavLink to="/login">Login</NavLink></li>
-    </ul>
+    <Menu.Menu position="right">
+      <Menu.Item as={Link} to="/register" content="Register" />
+      <Menu.Item as={Link} to="/login" content="Login" />
+    </Menu.Menu>
   );
 }
 

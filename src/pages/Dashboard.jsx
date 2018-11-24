@@ -3,8 +3,9 @@ import { Redirect } from 'react-router-dom';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
+import { Container, Grid, Segment } from 'semantic-ui-react';
 
-import CampaignList from '../components/Campaigns/CampaignList';
+import Dice from '../components/Dice';
 
 class Dashboard extends Component {
   render() {
@@ -12,10 +13,20 @@ class Dashboard extends Component {
 
     if (!auth.uid) return <Redirect to="/login" />
     return (
-      <div>
-        <h1>dashboard</h1>
-        <CampaignList campaigns={campaigns} />
-      </div>
+      <Container>
+        <Grid stackable stretched>
+          <Grid.Column width={10}>
+            <Segment>
+              testing
+            </Segment>
+          </Grid.Column>
+          <Grid.Column width={6}>
+            <Segment>
+              <Dice />
+            </Segment>
+          </Grid.Column>
+        </Grid>
+      </Container>
     );
   }
 }

@@ -1,6 +1,5 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { Redirect, Link } from "react-router-dom";
+import React, { Component, Fragment } from "react";
+import { Redirect } from "react-router-dom";
 import {
   Button,
   Form,
@@ -58,16 +57,7 @@ class Login extends Component {
 
     if (auth.uid) return <Redirect to="/" />
     return (
-      <div className="login-form">
-        <style>
-          {`
-            body > div,
-            body > div > div,
-            body > div > div > div.login-form {
-              height: 100%;
-            }
-          `}
-        </style>
+      <Fragment>
         <Grid
           textAlign="center"
           style={{ height: "100%" }}
@@ -112,7 +102,7 @@ class Login extends Component {
             </Form>
           </Grid.Column>
         </Grid>
-      </div>
+      </Fragment>
     );
   }
 }
