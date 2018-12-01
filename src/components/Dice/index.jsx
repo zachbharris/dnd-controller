@@ -3,7 +3,7 @@ import { Button, Input } from 'semantic-ui-react';
 
 class Dice extends Component {
   state = {
-    roll: null
+    roll: 0
   }
 
   handleRoll = (value, amount) => {

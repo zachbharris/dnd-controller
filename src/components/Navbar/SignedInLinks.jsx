@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Button, Dropdown, Image, Menu, Segment } from 'semantic-ui-react';
+import { Dropdown, Image, Menu, Segment } from 'semantic-ui-react';
 
 import { signOut } from '../../store/actions/authActions';
 

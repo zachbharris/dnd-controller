@@ -40,8 +40,16 @@ const authReducer = (state = initState, action) => {
           message: action.err.message
         },
       }
+    case 'SIGNOUT_REQUEST':
+      return {
+        ...state,
+        isLoading: true,
+      }
     case 'SIGNOUT_SUCCESS':
-      return state;
+      return {
+        ...state,
+        isLoading: false
+      };
     default:
       return state;
   }

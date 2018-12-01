@@ -3,9 +3,7 @@ import { Redirect } from 'react-router-dom';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
-import { Container, Grid, Segment } from 'semantic-ui-react';
-
-import Dice from '../components/Dice';
+import { Card, Container, Grid } from 'semantic-ui-react';
 
 class Dashboard extends Component {
   render() {
@@ -14,16 +12,21 @@ class Dashboard extends Component {
     if (!auth.uid) return <Redirect to="/login" />
     return (
       <Container>
-        <Grid stackable stretched>
-          <Grid.Column width={10}>
-            <Segment>
-              testing
-            </Segment>
-          </Grid.Column>
+        <Grid stackable>
           <Grid.Column width={6}>
-            <Segment>
-              <Dice />
-            </Segment>
+            <Card fluid>
+              <Card.Content>
+                <Card.Header content="Characters" />
+              </Card.Content>
+              <Card.Content>
+                poo
+              </Card.Content>
+              <Card.Content>
+                <Card.Description>
+                  more poo
+                </Card.Description>
+              </Card.Content>
+            </Card>
           </Grid.Column>
         </Grid>
       </Container>
@@ -35,6 +38,7 @@ const mapStateToProps = (state) => {
   return {
     auth: state.firebase.auth,
     campaigns: state.firestore.ordered.campaigns,
+    characters: state.firestore.characters
   }
 };
 

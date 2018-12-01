@@ -26,22 +26,17 @@ export const signIn = (credentials) => {
 }
 
 export const signOut = () => {
-  return (dispatch, getState, {
-    getFirebase
-  }) => {
+  return (dispatch, getState, { getFirebase }) => {
     const firebase = getFirebase();
-
-    firebase.auth().signOut()
-      .then(() => {
-        dispatch({
-          type: 'SIGNOUT_SUCCESS'
-        });
-      })
-      .catch((err) => {
-        dispatch({
-          type: 'SIGNOUT_FAILURE',
-          err
-        });
+    dispatch({ type: 'SIGNOUT_REQUEST' })
+    firebase
+      .auth()
+      .signOut()
+        .then(() => {
+          dispatch({ type: 'SIGNOUT_SUCCESS' });
+        })
+        .catch((err) => {
+          dispatch({ type: 'SIGNOUT_FAILURE', err });
       });
   }
 }
