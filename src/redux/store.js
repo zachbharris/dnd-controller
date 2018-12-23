@@ -6,12 +6,12 @@ import rootReducer from "./reducers"
 
 // Firebase config
 const firebaseConfig = {
-  apiKey: "AIzaSyCYa4o0GD2nz4Aa1VPRBIt1cWxe69_Zhqo",
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
   authDomain: "dnd-controller.firebaseapp.com",
   databaseURL: "https://dnd-controller.firebaseio.com",
   projectId: "dnd-controller",
   storageBucket: "dnd-controller.appspot.com",
-  messagingSenderId: "1098151045458"
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID
 }
 firebase.initializeApp(firebaseConfig)
 
