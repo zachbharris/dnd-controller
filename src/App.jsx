@@ -1,21 +1,21 @@
-import React, { Component } from "react";
-import { BrowserRouter as Router } from "react-router-dom";
+import React from "react";
+import { ThemeProvider } from "styled-components";
 
 // routes
 import Routes from "./routes";
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <Router>
-          <React.Fragment>
-            <Routes />
-          </React.Fragment>
-        </Router>
-      </div>
-    );
-  }
-}
+const theme = {
+  mode: "default"
+};
+
+const App = () => {
+  return (
+    <ThemeProvider theme={theme}>
+      <>
+        <Routes />
+      </>
+    </ThemeProvider>
+  );
+};
 
 export default App;

@@ -1,12 +1,16 @@
 import React from "react";
-import { Route, Switch, withRouter } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-import Dashboard from "../pages/Dashboard";
+import Landing from "./Landing";
+import NotFound from "./NotFound";
 
 const Routes = () => (
-  <Switch>
-    <Route exact path="/" component={Dashboard} />
-  </Switch>
+  <BrowserRouter>
+    <Switch>
+      <Route exact path="/" component={Landing} />
+      <Route component={NotFound} />
+    </Switch>
+  </BrowserRouter>
 );
 
-export default withRouter(Routes);
+export default Routes;
